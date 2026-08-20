@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-sage-100);
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+}
+
+.card:hover {
+  border-color: var(--color-sage-200);
+  box-shadow: 0 8px 30px -12px rgba(79, 97, 64, 0.18);
+  transform: translateY(-6px);
+}
+
+.iconWrap {
+  display: flex;
+  height: 3rem;
+  width: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--color-sage-50);
+  color: var(--color-sage-700);
+  transition: background-color 200ms ease;
+}
+
+.card:hover .iconWrap {
+  background: var(--color-sage-100);
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-sage-900);
+}
+
+.description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

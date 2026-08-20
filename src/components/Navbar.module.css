@@ -1,0 +1,132 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-sage-100);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.row {
+  display: flex;
+  height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.logoLink {
+  flex-shrink: 0;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.desktopDonate {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+  }
+  .desktopDonate {
+    display: block;
+  }
+}
+
+.navLink {
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.navLink:hover {
+  color: var(--color-sage-800);
+  background: var(--color-sage-50);
+}
+.navLinkActive {
+  color: var(--color-sage-800);
+  background: var(--color-sage-50);
+}
+
+.mobileToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.5rem;
+  color: var(--color-sage-800);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.mobileToggle:hover {
+  background: var(--color-sage-50);
+}
+
+@media (min-width: 1024px) {
+  .mobileToggle {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  border-top: 1px solid var(--color-sage-100);
+  background: var(--color-white);
+}
+
+@media (min-width: 1024px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+}
+
+.mobileNavLink {
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.mobileNavLink:hover {
+  background: var(--color-sage-50);
+}
+.mobileNavLinkActive {
+  color: var(--color-sage-800);
+  background: var(--color-sage-50);
+}
+
+.mobileDonate {
+  margin-top: 0.5rem;
+  width: 100%;
+}

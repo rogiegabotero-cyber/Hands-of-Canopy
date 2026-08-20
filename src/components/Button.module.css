@@ -1,0 +1,63 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease, transform 150ms ease;
+}
+
+.base:hover {
+  transform: translateY(-2px);
+}
+
+.base:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.primary {
+  background: var(--color-sage-700);
+  color: var(--color-white);
+}
+.primary:hover {
+  background: var(--color-sage-800);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--color-sage-800);
+  border: 1px solid var(--color-sage-300);
+}
+.secondary:hover {
+  border-color: var(--color-sage-500);
+  background: var(--color-sage-50);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-sage-800);
+}
+.ghost:hover {
+  background: var(--color-sage-50);
+}
+
+.gold {
+  background: var(--color-gold-500);
+  color: var(--color-sage-900);
+}
+.gold:hover {
+  background: var(--color-gold-600);
+}
+
+.md {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+}

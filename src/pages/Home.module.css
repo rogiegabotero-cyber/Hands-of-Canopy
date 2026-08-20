@@ -1,0 +1,194 @@
+.container {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.sectionNoTop {
+  padding: 0 0 5rem;
+}
+
+.sectionNoBottom {
+  padding: 5rem 0 0;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 7rem 0;
+  }
+  .sectionNoTop {
+    padding: 0 0 7rem;
+  }
+  .sectionNoBottom {
+    padding: 7rem 0 0;
+  }
+}
+
+.spacerTight {
+  padding: 1rem 0;
+}
+
+.grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.impactGrid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .impactGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .impactGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ctaRow {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.waysSection {
+  padding: 5rem 0;
+  background: var(--color-sage-50);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .waysSection {
+    padding: 7rem 0;
+  }
+}
+
+.waysArchLayer {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 10rem;
+  opacity: 0.4;
+  transform: scaleY(-1);
+}
+
+.waysContainer {
+  position: relative;
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .waysContainer {
+    padding: 0 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .waysContainer {
+    padding: 0 2rem;
+  }
+}
+
+.waysGrid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .waysGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .waysGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.wayCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-sage-100);
+}
+
+.wayIconWrap {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--color-sage-50);
+  color: var(--color-sage-700);
+}
+
+.wayTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-sage-900);
+}
+
+.wayDescription {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.valuesGrid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .valuesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .valuesGrid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+}

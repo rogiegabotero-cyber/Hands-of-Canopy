@@ -1,0 +1,133 @@
+.footer {
+  background: var(--color-sage-50);
+  border-top: 1px solid var(--color-sage-100);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 3.5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 3.5rem 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding: 3.5rem 2rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .brandColumn {
+    grid-column: span 2;
+  }
+}
+
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.brandText {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 24rem;
+}
+
+.donateButton {
+  width: fit-content;
+  margin-top: 0.5rem;
+}
+
+.columnHeading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-sage-800);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.navList a {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 150ms ease;
+}
+.navList a:hover {
+  color: var(--color-sage-800);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.socialRow {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.socialLink {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-sage-200);
+  color: var(--color-sage-700);
+  transition: background-color 150ms ease;
+}
+.socialLink:hover {
+  background: var(--color-white);
+}
+
+.bottomBar {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(205, 217, 191, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+@media (min-width: 640px) {
+  .bottomBar {
+    flex-direction: row;
+  }
+}
+
+.legalLinks {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.legalLinks a:hover {
+  color: var(--color-sage-800);
+}

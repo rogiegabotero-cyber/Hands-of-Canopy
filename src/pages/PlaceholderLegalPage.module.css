@@ -1,0 +1,31 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--color-sage-900);
+}
+
+.description {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

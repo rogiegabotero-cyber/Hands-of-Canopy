@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mark {
+  flex-shrink: 0;
+  overflow: hidden;
+  background-size: 160% 160%;
+  background-position: center 18%;
+  background-repeat: no-repeat;
+  transition: opacity 300ms ease;
+}
+
+.wordmarkGroup {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.wordmarkName {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-sage-900);
+}
+
+.wordmarkSub {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-sage-600);
+}
+
+@media (min-width: 640px) {
+  .wordmarkName {
+    font-size: 1.25rem;
+  }
+  .wordmarkSub {
+    font-size: 0.75rem;
+  }
+}
