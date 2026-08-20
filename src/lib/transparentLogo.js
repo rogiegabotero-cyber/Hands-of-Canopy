@@ -50,7 +50,8 @@ function loadImage(src) {
  * clipped.
  */
 export function getTransparentMarkDataUrl(src, { maxXFraction = 0.42, padFraction = 0.04 } = {}) {
-  if (cache.has(src)) return cache.get(src)
+  const key = `${src}::${maxXFraction}::${padFraction}`
+  if (cache.has(key)) return cache.get(key)
 
   const promise = loadImage(src).then((img) => {
     const width = img.naturalWidth
@@ -84,16 +85,16 @@ export function getTransparentMarkDataUrl(src, { maxXFraction = 0.42, padFractio
     return cropCanvas.toDataURL('image/png')
   })
 
-  cache.set(src, promise)
+  cache.set(key, promise)
   return promise
 }
 
-export function useTransparentMark(src) {
+export function useTransparentMark(src, { maxXFraction, padFraction } = {}) {
   const [dataUrl, setDataUrl] = useState(null)
 
   useEffect(() => {
     let active = true
-    getTransparentMarkDataUrl(src)
+    getTransparentMarkDataUrl(src, { maxXFraction, padFraction })
       .then((url) => {
         if (active) setDataUrl(url)
       })
@@ -103,7 +104,7 @@ export function useTransparentMark(src) {
     return () => {
       active = false
     }
-  }, [src])
+  }, [src, maxXFraction, padFraction])
 
   return dataUrl
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Logo } from './Logo'
 import { Button } from './Button'
+import { useHideOnScroll } from '../lib/useHideOnScroll'
 import styles from './Navbar.module.css'
 
 const links = [
@@ -16,17 +17,20 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
+  const hiddenByScroll = useHideOnScroll()
 
   useEffect(() => {
     setOpen(false)
   }, [location.pathname])
 
+  const isHidden = hiddenByScroll && !open
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isHidden ? styles.headerHidden : ''}`}>
       <div className={styles.container}>
         <div className={styles.row}>
           <NavLink to="/" className={styles.logoLink} onClick={() => setOpen(false)}>
-            <Logo size={56} withWordmark light />
+            <Logo size={64} />
           </NavLink>
 
           <nav className={styles.desktopNav}>
