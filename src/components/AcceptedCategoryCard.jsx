@@ -25,7 +25,6 @@ export function AcceptedCategoryCard({ icon, title, defaultCondition, items }) {
               </svg>
               {item.label}
             </span>
-            {item.note && <span className={styles.itemNote}>{item.note}</span>}
           </li>
         ))}
       </ul>

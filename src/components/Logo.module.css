@@ -33,6 +33,14 @@
   color: var(--color-sage-600);
 }
 
+.wordmarkNameLight {
+  color: var(--color-white);
+}
+
+.wordmarkSubLight {
+  color: var(--color-sage-200);
+}
+
 @media (min-width: 640px) {
   .wordmarkName {
     font-size: 1.25rem;

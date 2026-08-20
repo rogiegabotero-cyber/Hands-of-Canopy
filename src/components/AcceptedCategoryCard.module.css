@@ -78,15 +78,3 @@
   flex-shrink: 0;
   color: var(--color-sage-500);
 }
-
-.itemNote {
-  flex-shrink: 0;
-  font-size: 0.65rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.125rem 0.5rem;
-  border-radius: 9999px;
-  background: var(--color-gold-100);
-  color: var(--color-gold-600);
-}

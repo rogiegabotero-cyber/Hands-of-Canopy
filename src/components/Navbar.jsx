@@ -26,7 +26,7 @@ export function Navbar() {
       <div className={styles.container}>
         <div className={styles.row}>
           <NavLink to="/" className={styles.logoLink} onClick={() => setOpen(false)}>
-            <Logo size={56} withWordmark />
+            <Logo size={56} withWordmark light />
           </NavLink>
 
           <nav className={styles.desktopNav}>
@@ -45,7 +45,7 @@ export function Navbar() {
           </nav>
 
           <div className={styles.desktopDonate}>
-            <Button to="/ways-to-help#donate" variant="primary">
+            <Button to="/ways-to-help#donate" variant="gold">
               Donate
             </Button>
           </div>

@@ -7,7 +7,7 @@ const iconStyle = { width: 20, height: 20 }
 
 const details = [
   { icon: <EnvelopeIcon style={iconStyle} />, label: '[Organization Email]' },
-  { icon: <PhoneIcon style={iconStyle} />, label: '[Organization Phone Number]' },
+  { icon: <PhoneIcon style={iconStyle} />, label: '(754) 208-1481', href: 'tel:+17542081481' },
   { icon: <MapPinIcon style={iconStyle} />, label: '[Organization Address]' },
 ]
 
@@ -29,7 +29,13 @@ export function Contact() {
                 {details.map((detail) => (
                   <li key={detail.label} className={styles.detailItem}>
                     <span className={styles.detailIconWrap}>{detail.icon}</span>
-                    <span className={styles.detailLabel}>{detail.label}</span>
+                    {detail.href ? (
+                      <a href={detail.href} className={styles.detailLabel}>
+                        {detail.label}
+                      </a>
+                    ) : (
+                      <span className={styles.detailLabel}>{detail.label}</span>
+                    )}
                   </li>
                 ))}
               </ul>

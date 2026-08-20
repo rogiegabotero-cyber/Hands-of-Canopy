@@ -7,7 +7,7 @@ import styles from './Logo.module.css'
  * the mark (top ~64%) in the navbar/footer and set our own type alongside
  * it, since the baked-in wordmark can't be restyled to fit each context.
  */
-export function Logo({ size = 48, withWordmark = false }) {
+export function Logo({ size = 48, withWordmark = false, light = false }) {
   const processed = useTransparentLogo(logoSrc)
 
   return (
@@ -25,8 +25,12 @@ export function Logo({ size = 48, withWordmark = false }) {
       />
       {withWordmark && (
         <span className={styles.wordmarkGroup}>
-          <span className={styles.wordmarkName}>Hands of Canopy</span>
-          <span className={styles.wordmarkSub}>Community Outreach Center</span>
+          <span className={`${styles.wordmarkName} ${light ? styles.wordmarkNameLight : ''}`}>
+            Hands of Canopy
+          </span>
+          <span className={`${styles.wordmarkSub} ${light ? styles.wordmarkSubLight : ''}`}>
+            Community Outreach Center
+          </span>
         </span>
       )}
     </div>

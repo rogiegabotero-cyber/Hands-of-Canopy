@@ -1,3 +1,4 @@
+import { PhoneIcon } from '@heroicons/react/24/solid'
 import { Button } from './Button'
 import styles from './DonationCTA.module.css'
 
@@ -16,12 +17,14 @@ export function DonationCTA({
 
           {mode === 'donate' ? (
             <div className={styles.actions}>
-              <Button type="button" variant="gold" size="lg">
+              <Button href="tel:+17542081481" variant="gold" size="lg">
                 Donate Now
               </Button>
-              <span className={styles.note}>
-                [Donation link coming soon — connect your payment processor here]
-              </span>
+              <span className={styles.orDivider}>or</span>
+              <a href="tel:+17542081481" className={styles.phoneLink}>
+                <PhoneIcon className={styles.phoneIcon} />
+                Call (754) 208-1481
+              </a>
             </div>
           ) : (
             <div className={styles.contactAction}>

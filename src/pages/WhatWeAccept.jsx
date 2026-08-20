@@ -43,7 +43,7 @@ export function WhatWeAccept() {
                 { label: 'Shoes — infant through adult' },
                 { label: 'Jackets — all sizes' },
                 { label: 'Sweaters — all sizes' },
-                { label: 'Undergarments — male & female', note: 'New only' },
+                { label: 'Undergarments — male & female (New only)' },
               ]}
             />
 
@@ -64,13 +64,6 @@ export function WhatWeAccept() {
               defaultCondition="New items preferred"
               items={[{ label: 'Personal hygiene products for males and females' }]}
             />
-          </div>
-
-          <div className={styles.note}>
-            <strong className={styles.noteStrong}>A note on condition:</strong> most items may be
-            new or gently used, but for hygiene reasons, undergarments must always be new
-            and unused. If you're ever unsure whether an item qualifies, please reach out —
-            we're happy to help.
           </div>
         </div>
       </section>

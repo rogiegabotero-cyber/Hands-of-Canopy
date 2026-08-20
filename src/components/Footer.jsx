@@ -49,7 +49,9 @@ export function Footer() {
             <h3 className={styles.columnHeading}>Contact</h3>
             <ul className={styles.contactList}>
               <li>[Organization Email]</li>
-              <li>[Organization Phone Number]</li>
+              <li>
+                <a href="tel:+17542081481">(754) 208-1481</a>
+              </li>
               <li>[Organization Address]</li>
             </ul>
             <div className={styles.socialRow}>

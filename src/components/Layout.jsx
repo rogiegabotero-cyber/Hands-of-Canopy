@@ -1,12 +1,15 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { ScrollManager } from './ScrollManager'
 import { useFavicon } from '../lib/useFavicon'
+import { useScrollReveal } from '../lib/useScrollReveal'
 import styles from './Layout.module.css'
 
 export function Layout() {
   useFavicon()
+  useScrollReveal()
+  const { pathname } = useLocation()
 
   return (
     <div className={styles.page}>
@@ -16,7 +19,9 @@ export function Layout() {
       </a>
       <Navbar />
       <main id="main-content" className={styles.main}>
-        <Outlet />
+        <div key={pathname} className={styles.pageTransition}>
+          <Outlet />
+        </div>
       </main>
       <Footer />
     </div>

@@ -43,18 +43,3 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-
-.note {
-  margin-top: 2.5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(227, 200, 135, 0.6);
-  background: rgba(246, 236, 212, 0.4);
-  padding: 1.25rem 1.5rem;
-  font-size: 0.875rem;
-  color: rgba(43, 42, 38, 0.75);
-  line-height: 1.6;
-}
-
-.noteStrong {
-  color: var(--color-sage-800);
-}

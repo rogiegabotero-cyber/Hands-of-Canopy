@@ -8,6 +8,21 @@
   flex: 1;
 }
 
+.pageTransition {
+  animation: pageFadeIn 320ms ease both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .skipLink {
   position: absolute;
   width: 1px;

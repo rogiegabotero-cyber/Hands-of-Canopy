@@ -85,6 +85,17 @@ img {
   display: block;
 }
 
+section.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+section.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 ::selection {
   background: var(--color-sage-200);
   color: var(--color-sage-900);

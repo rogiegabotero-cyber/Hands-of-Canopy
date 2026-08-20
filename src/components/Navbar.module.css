@@ -2,9 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(47, 58, 40, 0.96);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-sage-100);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .container {
@@ -60,16 +60,16 @@
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.75);
   transition: background-color 150ms ease, color 150ms ease;
 }
 .navLink:hover {
-  color: var(--color-sage-800);
-  background: var(--color-sage-50);
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
 }
 .navLinkActive {
-  color: var(--color-sage-800);
-  background: var(--color-sage-50);
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .mobileToggle {
@@ -78,13 +78,13 @@
   justify-content: center;
   border-radius: 9999px;
   padding: 0.5rem;
-  color: var(--color-sage-800);
+  color: var(--color-white);
   background: transparent;
   border: none;
   cursor: pointer;
 }
 .mobileToggle:hover {
-  background: var(--color-sage-50);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 1024px) {
@@ -94,8 +94,8 @@
 }
 
 .mobileMenu {
-  border-top: 1px solid var(--color-sage-100);
-  background: var(--color-white);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(47, 58, 40, 0.98);
 }
 
 @media (min-width: 1024px) {
@@ -116,14 +116,14 @@
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.75);
 }
 .mobileNavLink:hover {
-  background: var(--color-sage-50);
+  background: rgba(255, 255, 255, 0.08);
 }
 .mobileNavLinkActive {
-  color: var(--color-sage-800);
-  background: var(--color-sage-50);
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .mobileDonate {
