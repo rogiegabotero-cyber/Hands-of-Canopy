@@ -1,5 +1,4 @@
 :root {
-  --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Sage green — primary brand color, drawn from the canopy/hands in the logo */
@@ -57,7 +56,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   margin: 0;
 }
 
