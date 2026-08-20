@@ -7,8 +7,8 @@
 .mark {
   flex-shrink: 0;
   overflow: hidden;
-  background-size: 160% 160%;
-  background-position: center 18%;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   transition: opacity 300ms ease;
 }

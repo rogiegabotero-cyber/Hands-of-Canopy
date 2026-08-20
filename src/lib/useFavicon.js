@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import logoSrc from '../assets/logo.jpeg'
-import { getTransparentLogoDataUrl } from './transparentLogo'
+import faviconSrc from '../assets/hoc-favicon.webp'
+import { getTransparentMarkDataUrl } from './transparentLogo'
 
 export function useFavicon() {
   useEffect(() => {
-    getTransparentLogoDataUrl(logoSrc)
+    getTransparentMarkDataUrl(faviconSrc, { maxXFraction: 1 })
       .then((dataUrl) => {
         const canvas = document.createElement('canvas')
         canvas.width = 64
@@ -14,9 +14,10 @@ export function useFavicon() {
 
         const img = new Image()
         img.onload = () => {
-          // The mark occupies roughly the top ~62% of the square; crop to it.
-          const cropSize = img.naturalWidth * 0.62
-          ctx.drawImage(img, 0, 0, cropSize, cropSize, 0, 0, 64, 64)
+          const scale = Math.min(64 / img.naturalWidth, 64 / img.naturalHeight)
+          const w = img.naturalWidth * scale
+          const h = img.naturalHeight * scale
+          ctx.drawImage(img, (64 - w) / 2, (64 - h) / 2, w, h)
 
           let link = document.querySelector("link[rel='icon']")
           if (!link) {

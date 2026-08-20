@@ -1,67 +1,99 @@
 import { useEffect, useState } from 'react'
 
 /**
- * The source logo file is shot on a solid black background with no alpha
- * channel. We only have that one flattened version, so we recover
- * transparency with an "un-multiply" matte: on a black backdrop, a pixel's
- * observed value equals trueColor * alpha, so alpha ~= max(r,g,b) and
- * trueColor ~= observed / alpha. This turns the black square into a clean
- * transparent background wherever the logo appears on white.
+ * Finds the bounding box of non-transparent pixels within the left
+ * `maxXFraction` slice of the canvas, so we can isolate just the mark from
+ * a wide mark+wordmark lockup image without hand-measuring crop percentages.
  */
-function unmultiplyBlackMatte(ctx, width, height) {
-  const imageData = ctx.getImageData(0, 0, width, height)
+function findContentBoundingBox(imageData, width, height, maxXFraction) {
   const d = imageData.data
-  for (let i = 0; i < d.length; i += 4) {
-    const r = d[i]
-    const g = d[i + 1]
-    const b = d[i + 2]
-    const alpha = Math.max(r, g, b)
-    if (alpha === 0) {
-      d[i + 3] = 0
-    } else {
-      d[i] = Math.min(255, Math.round((r / alpha) * 255))
-      d[i + 1] = Math.min(255, Math.round((g / alpha) * 255))
-      d[i + 2] = Math.min(255, Math.round((b / alpha) * 255))
-      d[i + 3] = alpha
+  const scanWidth = Math.round(width * maxXFraction)
+  let minX = width
+  let minY = height
+  let maxX = 0
+  let maxY = 0
+  let found = false
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < scanWidth; x++) {
+      const alpha = d[(y * width + x) * 4 + 3]
+      if (alpha > 10) {
+        found = true
+        if (x < minX) minX = x
+        if (x > maxX) maxX = x
+        if (y < minY) minY = y
+        if (y > maxY) maxY = y
+      }
     }
   }
-  ctx.putImageData(imageData, 0, 0)
+
+  if (!found) return null
+  return { minX, minY, maxX, maxY }
 }
 
-let cachedPromise = null
+const cache = new Map()
 
-export function getTransparentLogoDataUrl(src) {
-  if (cachedPromise) return cachedPromise
-
-  cachedPromise = new Promise((resolve, reject) => {
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
     const img = new Image()
     img.crossOrigin = 'anonymous'
-    img.onload = () => {
-      const canvas = document.createElement('canvas')
-      canvas.width = img.naturalWidth
-      canvas.height = img.naturalHeight
-      const ctx = canvas.getContext('2d')
-      if (!ctx) {
-        reject(new Error('Canvas 2D context unavailable'))
-        return
-      }
-      ctx.drawImage(img, 0, 0)
-      unmultiplyBlackMatte(ctx, canvas.width, canvas.height)
-      resolve(canvas.toDataURL('image/png'))
-    }
+    img.onload = () => resolve(img)
     img.onerror = () => reject(new Error('Failed to load logo source image'))
     img.src = src
   })
-
-  return cachedPromise
 }
 
-export function useTransparentLogo(src) {
+/**
+ * The source lockup already has a real alpha channel, so this just
+ * isolates the mark artwork (the left portion) from the wordmark next to
+ * it, cropping tightly with a little padding so anti-aliased edges aren't
+ * clipped.
+ */
+export function getTransparentMarkDataUrl(src, { maxXFraction = 0.42, padFraction = 0.04 } = {}) {
+  if (cache.has(src)) return cache.get(src)
+
+  const promise = loadImage(src).then((img) => {
+    const width = img.naturalWidth
+    const height = img.naturalHeight
+    const canvas = document.createElement('canvas')
+    canvas.width = width
+    canvas.height = height
+    const ctx = canvas.getContext('2d')
+    if (!ctx) throw new Error('Canvas 2D context unavailable')
+    ctx.drawImage(img, 0, 0)
+    const imageData = ctx.getImageData(0, 0, width, height)
+
+    const box = findContentBoundingBox(imageData, width, height, maxXFraction)
+    if (!box) return canvas.toDataURL('image/png')
+
+    const boxWidth = box.maxX - box.minX
+    const boxHeight = box.maxY - box.minY
+    const padX = Math.round(boxWidth * padFraction)
+    const padY = Math.round(boxHeight * padFraction)
+    const cropX = Math.max(0, box.minX - padX)
+    const cropY = Math.max(0, box.minY - padY)
+    const cropWidth = Math.min(width - cropX, boxWidth + padX * 2)
+    const cropHeight = Math.min(height - cropY, boxHeight + padY * 2)
+
+    const cropCanvas = document.createElement('canvas')
+    cropCanvas.width = cropWidth
+    cropCanvas.height = cropHeight
+    const cropCtx = cropCanvas.getContext('2d')
+    if (!cropCtx) throw new Error('Canvas 2D context unavailable')
+    cropCtx.putImageData(imageData, -cropX, -cropY, cropX, cropY, cropWidth, cropHeight)
+    return cropCanvas.toDataURL('image/png')
+  })
+
+  cache.set(src, promise)
+  return promise
+}
+
+export function useTransparentMark(src) {
   const [dataUrl, setDataUrl] = useState(null)
 
   useEffect(() => {
     let active = true
-    getTransparentLogoDataUrl(src)
+    getTransparentMarkDataUrl(src)
       .then((url) => {
         if (active) setDataUrl(url)
       })

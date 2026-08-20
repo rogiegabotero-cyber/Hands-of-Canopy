@@ -1,14 +1,15 @@
-import logoSrc from '../assets/logo.jpeg'
-import { useTransparentLogo } from '../lib/transparentLogo'
+import logoSrc from '../assets/hoc-logo.webp'
+import { useTransparentMark } from '../lib/transparentLogo'
 import styles from './Logo.module.css'
 
 /**
- * The source file is a square mark + wordmark shot on black. We show only
- * the mark (top ~64%) in the navbar/footer and set our own type alongside
- * it, since the baked-in wordmark can't be restyled to fit each context.
+ * The source file is a wide mark + wordmark lockup shot on black. We show
+ * only the mark (auto-cropped from the left side) in the navbar/footer and
+ * set our own type alongside it, since the baked-in wordmark can't be
+ * restyled to fit each context (e.g. the light variant on a dark navbar).
  */
 export function Logo({ size = 48, withWordmark = false, light = false }) {
-  const processed = useTransparentLogo(logoSrc)
+  const processed = useTransparentMark(logoSrc)
 
   return (
     <div className={styles.wrapper}>
