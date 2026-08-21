@@ -16,7 +16,7 @@ export function Hero() {
 
         <p className={styles.description}>
           We provide essential resources, support, and guidance to foster children,
-          caregivers, and families — so every child and caregiver is covered with
+          caregivers, and families — so children and caregivers are covered with
           care, dignity, and opportunity.
         </p>
 
