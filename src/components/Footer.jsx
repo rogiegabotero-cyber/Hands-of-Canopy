@@ -48,11 +48,13 @@ export function Footer() {
           <div>
             <h3 className={styles.columnHeading}>Contact</h3>
             <ul className={styles.contactList}>
-              <li>[Organization Email]</li>
+              <li>
+                <a href="mailto:donate@handsofcanopy.com">donate@handsofcanopy.com</a>
+              </li>
               <li>
                 <a href="tel:+17542081481">(754) 208-1481</a>
               </li>
-              <li>[Organization Address]</li>
+              <li>10770 SW 216 St. PO Box 700678<br />Miami, Florida 33170</li>
             </ul>
             <div className={styles.socialRow}>
               {social.map((s) => (

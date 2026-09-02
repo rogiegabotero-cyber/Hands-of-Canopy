@@ -6,9 +6,9 @@ import styles from './Contact.module.css'
 const iconStyle = { width: 20, height: 20 }
 
 const details = [
-  { icon: <EnvelopeIcon style={iconStyle} />, label: '[Organization Email]' },
+  { icon: <EnvelopeIcon style={iconStyle} />, label: 'donate@handsofcanopy.com', href: 'mailto:donate@handsofcanopy.com' },
   { icon: <PhoneIcon style={iconStyle} />, label: '(754) 208-1481', href: 'tel:+17542081481' },
-  { icon: <MapPinIcon style={iconStyle} />, label: '[Organization Address]' },
+  { icon: <MapPinIcon style={iconStyle} />, label: '10770 SW 216 St. PO Box 700678, Miami, Florida 33170' },
 ]
 
 export function Contact() {
@@ -24,6 +24,7 @@ export function Contact() {
         <div className={styles.layout}>
           <div className={styles.details}>
             <div>
+              <p className={styles.orgName}>Hands of Canopy Community Outreach Center, Inc.</p>
               <h2 className={styles.blockHeading}>Contact Details</h2>
               <ul className={styles.detailList}>
                 {details.map((detail) => (

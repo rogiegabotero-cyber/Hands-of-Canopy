@@ -41,6 +41,16 @@
   gap: 2rem;
 }
 
+.orgName {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-sage-700);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
 .blockHeading {
   font-size: 1.25rem;
   font-weight: 600;
