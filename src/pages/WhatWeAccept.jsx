@@ -4,8 +4,6 @@ import { AcceptedCategoryCard } from '../components/AcceptedCategoryCard'
 import { DonationCTA } from '../components/DonationCTA'
 import styles from './WhatWeAccept.module.css'
 
-const iconStyle = { width: 24, height: 24 }
-
 export function WhatWeAccept() {
   return (
     <>
@@ -19,7 +17,7 @@ export function WhatWeAccept() {
         <div className={styles.container}>
           <div className={styles.grid}>
             <AcceptedCategoryCard
-              icon={<HeartIcon style={iconStyle} />}
+              icon={<HeartIcon className="icon-24" />}
               title="Baby, Infant & Toddler Items"
               defaultCondition="New or gently used"
               items={[
@@ -35,7 +33,7 @@ export function WhatWeAccept() {
             />
 
             <AcceptedCategoryCard
-              icon={<ShoppingBagIcon style={iconStyle} />}
+              icon={<ShoppingBagIcon className="icon-24" />}
               title="Clothing"
               defaultCondition="New or gently used"
               items={[
@@ -48,7 +46,7 @@ export function WhatWeAccept() {
             />
 
             <AcceptedCategoryCard
-              icon={<BookOpenIcon style={iconStyle} />}
+              icon={<BookOpenIcon className="icon-24" />}
               title="Education & Learning"
               defaultCondition="New or gently used"
               items={[
@@ -59,7 +57,7 @@ export function WhatWeAccept() {
             />
 
             <AcceptedCategoryCard
-              icon={<SparklesIcon style={iconStyle} />}
+              icon={<SparklesIcon className="icon-24" />}
               title="Personal Care"
               defaultCondition="New items preferred"
               items={[{ label: 'Personal hygiene products for males and females' }]}

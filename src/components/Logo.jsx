@@ -1,24 +1,19 @@
-import logoSrc from '../assets/hoc-favicon.webp'
+import logoSrc from '../assets/hoc-logo.webp'
 import { useTransparentMark } from '../lib/transparentLogo'
 import styles from './Logo.module.css'
 
 /**
- * The source file is the mark icon (no wordmark baked in), so we crop it
- * tightly to its own content and set our own type alongside it.
+ * The source file is a wide mark+wordmark lockup, so we crop tightly to
+ * just the mark artwork on the left and set our own type alongside it.
  */
 export function Logo({ size = 48, withWordmark = false }) {
-  const processed = useTransparentMark(logoSrc, { maxXFraction: 1 })
+  const processed = useTransparentMark(logoSrc)
 
   return (
     <div className={styles.wrapper}>
       <span
-        className={styles.mark}
-        style={{
-          width: size,
-          height: size,
-          backgroundImage: `url(${processed ?? logoSrc})`,
-          opacity: processed ? 1 : 0,
-        }}
+        className={`${styles.mark} ${processed ? styles.markLoaded : ''}`}
+        style={{ '--logo-size': `${size}px`, '--logo-image': `url(${processed ?? logoSrc})` }}
         role="img"
         aria-label="Hands of Canopy Community Outreach Center logo"
       />

@@ -38,7 +38,7 @@ export function About() {
 
       <section className={styles.valuesSection}>
         <div className={styles.valuesArchLayer}>
-          <CanopyArch style={{ height: '100%', width: '100%' }} />
+          <CanopyArch className={styles.archFill} />
         </div>
         <div className={styles.valuesContainer}>
           <SectionHeading eyebrow="Our Values" title="What Guides Everything We Do" />

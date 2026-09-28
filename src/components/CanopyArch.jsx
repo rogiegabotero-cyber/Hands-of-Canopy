@@ -1,15 +1,43 @@
+import { useEffect, useRef, useState } from 'react'
+import styles from './CanopyArch.module.css'
+
 /**
  * A soft, abstract echo of the logo's arching hands/canopy silhouette —
  * used as a background motif so the brand feels present without repeating
  * the literal logo mark throughout the page.
+ *
+ * It stays collapsed toward its horizontal center until its container
+ * scrolls into view, then spreads outward and settles into place — and
+ * draws back in toward the center once the container scrolls back out
+ * of view (in either direction).
  */
-export function CanopyArch({ className = '', style }) {
+export function CanopyArch({ className = '' }) {
+  const svgRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const node = svgRef.current
+    if (!node) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting)
+        })
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <svg
+      ref={svgRef}
       viewBox="0 0 600 300"
       fill="none"
-      className={className}
-      style={style}
+      className={`${className} ${styles.arch} ${isVisible ? styles.archVisible : ''}`}
       aria-hidden="true"
       preserveAspectRatio="xMidYMax slice"
     >

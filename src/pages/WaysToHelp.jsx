@@ -10,39 +10,37 @@ import { Button } from '../components/Button'
 import { DonationCTA } from '../components/DonationCTA'
 import styles from './WaysToHelp.module.css'
 
-const iconStyle = { width: 28, height: 28 }
-
 const ways = [
   {
-    icon: <GiftIcon style={iconStyle} />,
+    icon: <GiftIcon className="icon-28" />,
     title: 'Donate',
     description:
       'Give financial support to help fund the essential resources we provide to foster children and families.',
     action: { label: 'Donate Now', to: '#donate' },
   },
   {
-    icon: <ShoppingBagIcon style={iconStyle} />,
+    icon: <ShoppingBagIcon className="icon-28" />,
     title: 'Give Items',
     description:
       'Donate new or gently used clothing, baby items, books, learning games, school supplies, and hygiene products.',
     action: { label: 'See What We Accept', to: '/what-we-accept' },
   },
   {
-    icon: <BuildingLibraryIcon style={iconStyle} />,
+    icon: <BuildingLibraryIcon className="icon-28" />,
     title: 'Partner With Us',
     description:
       'Businesses, organizations, churches, schools, and community groups are invited to collaborate with us.',
     action: { label: 'Get in Touch', to: '/contact' },
   },
   {
-    icon: <HandRaisedIcon style={iconStyle} />,
+    icon: <HandRaisedIcon className="icon-28" />,
     title: 'Volunteer',
     description:
       'Volunteer opportunities are coming soon. Reach out to be notified when they become available.',
     action: { label: 'Contact Us', to: '/contact' },
   },
   {
-    icon: <MegaphoneIcon style={iconStyle} />,
+    icon: <MegaphoneIcon className="icon-28" />,
     title: 'Spread the Word',
     description:
       'Share our mission with your friends, family, and community — awareness helps us reach more families.',

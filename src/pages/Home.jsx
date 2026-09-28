@@ -22,30 +22,27 @@ import { Button } from '../components/Button'
 import { CanopyArch } from '../components/CanopyArch'
 import styles from './Home.module.css'
 
-const iconSize = { width: 24, height: 24 }
-const smallIconSize = { width: 20, height: 20 }
-
 const services = [
   {
-    icon: <ShoppingBagIcon style={iconSize} />,
+    icon: <ShoppingBagIcon className="icon-24" />,
     title: 'Essential Resources',
     description:
       'Clothing, hygiene products, school supplies, children’s books, toys, and baby supplies for children and families in need.',
   },
   {
-    icon: <HomeModernIcon style={iconSize} />,
+    icon: <HomeModernIcon className="icon-24" />,
     title: 'Support for Foster Families',
     description:
       'Resources and practical assistance that help caregivers navigate transitions and provide stability at home.',
   },
   {
-    icon: <AcademicCapIcon style={iconSize} />,
+    icon: <AcademicCapIcon className="icon-24" />,
     title: 'Educational Support',
     description:
       'School supplies, books, and learning games that help children keep learning and growing.',
   },
   {
-    icon: <UserGroupIcon style={iconSize} />,
+    icon: <UserGroupIcon className="icon-24" />,
     title: 'Community Partnerships',
     description:
       'Working with individuals, organizations, and community partners to strengthen support for foster children and families.',
@@ -53,20 +50,20 @@ const services = [
 ]
 
 const impactExamples = [
-  { icon: <ShoppingBagIcon style={smallIconSize} />, title: 'Clothing for a child entering a new home' },
-  { icon: <AcademicCapIcon style={smallIconSize} />, title: 'School supplies for a student' },
-  { icon: <SparklesIcon style={smallIconSize} />, title: 'Hygiene essentials for daily dignity' },
-  { icon: <BookOpenIcon style={smallIconSize} />, title: 'Books and learning materials' },
-  { icon: <HeartIcon style={smallIconSize} />, title: 'Baby necessities for infants and toddlers' },
-  { icon: <ShieldCheckIcon style={smallIconSize} />, title: 'Shoes and everyday essentials' },
+  { icon: <ShoppingBagIcon className="icon-20" />, title: 'Clothing for a child entering a new home' },
+  { icon: <AcademicCapIcon className="icon-20" />, title: 'School supplies for a student' },
+  { icon: <SparklesIcon className="icon-20" />, title: 'Hygiene essentials for daily dignity' },
+  { icon: <BookOpenIcon className="icon-20" />, title: 'Books and learning materials' },
+  { icon: <HeartIcon className="icon-20" />, title: 'Baby necessities for infants and toddlers' },
+  { icon: <ShieldCheckIcon className="icon-20" />, title: 'Shoes and everyday essentials' },
 ]
 
 const waysToHelp = [
-  { icon: <GiftIcon style={iconSize} />, title: 'Donate', description: 'Give financial support to fund essential resources.' },
-  { icon: <ShoppingBagIcon style={iconSize} />, title: 'Give Items', description: 'Donate new or gently used items from our accepted-items list.' },
-  { icon: <BuildingLibraryIcon style={iconSize} />, title: 'Partner With Us', description: 'Businesses, churches, schools, and community groups can collaborate with us.' },
-  { icon: <HandRaisedIcon style={iconSize} />, title: 'Volunteer', description: 'Volunteer opportunities are coming soon — check back for updates.' },
-  { icon: <MegaphoneIcon style={iconSize} />, title: 'Spread the Word', description: 'Share our mission with your friends, family, and community.' },
+  { icon: <GiftIcon className="icon-24" />, title: 'Donate', description: 'Give financial support to fund essential resources.' },
+  { icon: <ShoppingBagIcon className="icon-24" />, title: 'Give Items', description: 'Donate new or gently used items from our accepted-items list.' },
+  { icon: <BuildingLibraryIcon className="icon-24" />, title: 'Partner With Us', description: 'Businesses, churches, schools, and community groups can collaborate with us.' },
+  { icon: <HandRaisedIcon className="icon-24" />, title: 'Volunteer', description: 'Volunteer opportunities are coming soon — check back for updates.' },
+  { icon: <MegaphoneIcon className="icon-24" />, title: 'Spread the Word', description: 'Share our mission with your friends, family, and community.' },
 ]
 
 const values = [
@@ -129,7 +126,7 @@ export function Home() {
 
       <section className={styles.waysSection}>
         <div className={styles.waysArchLayer}>
-          <CanopyArch style={{ height: '100%', width: '100%' }} />
+          <CanopyArch className={styles.archFill} />
         </div>
         <div className={styles.waysContainer}>
           <SectionHeading

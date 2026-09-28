@@ -20,14 +20,71 @@
 }
 
 .panel {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   border-radius: 1.5rem;
-  background: var(--color-sage-800);
+  background: radial-gradient(120% 100% at 50% 30%, #4f6140 0%, var(--color-sage-800) 55%, #212b1b 100%);
   padding: 3.5rem 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+}
+
+.treeLeft,
+.treeRight {
+  position: absolute;
+  top: 1.5rem;
+  z-index: -1;
+  width: 52%;
+  max-width: 25rem;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 700ms ease;
+}
+
+.treeLeft {
+  left: -2%;
+  transform: translateX(-70%);
+}
+
+.treeRight {
+  right: -2%;
+  transform: translateX(70%);
+}
+
+.treeLeftVisible,
+.treeRightVisible {
+  opacity: 0.9;
+  transform: translateX(0);
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 700ms ease;
+  /* ground.png has a transparent margin baked into its bottom ~23.6% of its
+     height, so the resting position is shifted down by that amount to bring
+     the artwork itself flush with the panel's bottom edge instead of
+     floating above it. The hidden state adds an extra offset on top of that
+     so it slides up into its resting spot from further below. */
+  transform: translateY(calc(23.6% + 100px));
+}
+
+.groundVisible {
+  opacity: 0.85;
+  transform: translateY(23.6%);
 }
 
 @media (min-width: 640px) {

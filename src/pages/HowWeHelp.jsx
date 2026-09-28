@@ -8,29 +8,27 @@ import { PageHero } from '../components/PageHero'
 import { DonationCTA } from '../components/DonationCTA'
 import styles from './HowWeHelp.module.css'
 
-const iconStyle = { width: 28, height: 28 }
-
 const services = [
   {
-    icon: <ShoppingBagIcon style={iconStyle} />,
+    icon: <ShoppingBagIcon className="icon-28" />,
     title: 'Essential Resources',
     description:
       'We provide clothing, hygiene products, school supplies, children’s books, toys, and baby supplies to children and families who need them — helping meet everyday needs with dignity.',
   },
   {
-    icon: <HomeModernIcon style={iconStyle} />,
+    icon: <HomeModernIcon className="icon-28" />,
     title: 'Support for Foster Families',
     description:
       'We offer resources and practical assistance that help caregivers navigate transitions and provide the stability that foster children need to feel safe and secure.',
   },
   {
-    icon: <AcademicCapIcon style={iconStyle} />,
+    icon: <AcademicCapIcon className="icon-28" />,
     title: 'Educational Support',
     description:
       'School supplies, gently used books, and low-technology learning games help children keep learning and growing, no matter where their journey takes them.',
   },
   {
-    icon: <UserGroupIcon style={iconStyle} />,
+    icon: <UserGroupIcon className="icon-28" />,
     title: 'Community Partnerships',
     description:
       'We work alongside individuals, organizations, and community partners to strengthen the network of support available to foster children and families.',

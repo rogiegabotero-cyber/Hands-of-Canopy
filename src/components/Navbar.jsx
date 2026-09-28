@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Logo } from './Logo'
 import { Button } from './Button'
 import { useHideOnScroll } from '../lib/useHideOnScroll'
+import logoSrc from '../assets/hoc-logo.webp'
 import styles from './Navbar.module.css'
 
 const links = [
@@ -30,7 +30,11 @@ export function Navbar() {
       <div className={styles.container}>
         <div className={styles.row}>
           <NavLink to="/" className={styles.logoLink} onClick={() => setOpen(false)}>
-            <Logo size={64} />
+            <img
+              src={logoSrc}
+              alt="Hands of Canopy Community Outreach Center, Inc."
+              className={styles.logoImage}
+            />
           </NavLink>
 
           <nav className={styles.desktopNav}>
